@@ -1,0 +1,57 @@
+// home.scss
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  @media screen and (max-width: 767px) {
+    height: 300px;
+  }
+}
+
+.hero__content {
+  padding: 30rem;
+  width: 400px;
+  background-color: #fff;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  transform: translate(50%, -50%);
+  @media screen and (max-width: 1024px) {
+    width: 350px;
+    right: 30%;
+  }
+  @media screen and (max-width: 767px) {
+    width: 260px;
+    right: 50%;
+    top: 40%;
+    padding: 25rem;
+  }
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0% 33%;
+  @media screen and (max-width: 767px) {
+    object-position: 0 -50px;
+  }
+}
+
+.hero__content-subtitle {
+  font-weight: 600;
+  font-size: 22.5rem;
+  @media screen and (max-width: 767px) {
+    font-size: 17rem;
+  }
+}
+
+.hero__content-text {
+  font-size: 18rem;
+  margin-top: 15rem;
+  @media screen and (max-width: 767px) {
+    font-size: 15rem;
+  }
+}
