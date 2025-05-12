@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 25rem;  // Reste avec les mêmes tailles de padding comme avant
+  @media screen and (max-width: 767px) {
+    padding-left: 0;
+    flex-direction: column;  // Permet de mieux organiser la navbar en colonne sur petits écrans
+  }
+
+  &__logo {
+    max-width: 100%;
+    width: 200rem;  // Garde la largeur comme avant pour le logo
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;  // Aligne le texte et l'icône horizontalement
+    gap: 5rem;  // Espacement entre les éléments (peut être ajusté si nécessaire)
+    font-weight: 600;
+    font-size: 16rem;  // Garde la taille de la police à 16rem
+    cursor: pointer;
+  }
+
+  &__link:hover {
+    text-decoration: underline;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 10rem;  // Garde le même espace entre le nom d'utilisateur et le bouton de déconnexion
+  }
+
+  .navbar__username {
+    font-size: 16rem;  // Garde la taille de la police du nom d'utilisateur à 16rem
+    font-weight: 600;
+  }
+
+  .navbar__logout {
+    display: flex;
+    align-items: center;
+    gap: 5rem;  // Espacement entre l'icône et le texte
+  }
+}

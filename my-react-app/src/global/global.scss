@@ -1,0 +1,41 @@
+// global.scss
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  min-height: 100%;
+  overflow-y: scroll;
+  overscroll-behavior: none;
+  color: #2c3e50;
+  background-color: #fff;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  display: block;
+  font-size: 14.0625rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #00bc77;
+  padding: 7.5rem 18.75rem;
+  border-radius: 9.375rem;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover {
+  background-color: rgb(0, 188, 119, 0.9);
+}

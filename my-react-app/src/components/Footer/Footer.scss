@@ -1,0 +1,15 @@
+// footer.scss
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  padding: 30rem 0 22rem;
+
+  & p {
+    font-size: 16rem;
+    line-height: normal;
+    user-select: none;
+  }
+}

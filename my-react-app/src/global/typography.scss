@@ -1,0 +1,39 @@
+// typography.scss
+
+$font-primary: "Geist", sans-serif;
+
+html {
+  font-size: calc(0.06944444444444445 * 1vw);
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: calc(0.125 * 1vw);
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: calc(0.2564102564102564 * 1vw);
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 21rem;
+  letter-spacing: -0.02em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  text-wrap: balance;
+  font-kerning: normal;
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: break-word;
+}

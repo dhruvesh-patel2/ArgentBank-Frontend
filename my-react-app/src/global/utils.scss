@@ -1,0 +1,28 @@
+// utils.scss
+
+.w-inline-block {
+  max-width: 100%;
+  display: inline-block;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
+.bg-dark {
+  background-color: #12002b;
+}
+
+.responsive-w100 {
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
