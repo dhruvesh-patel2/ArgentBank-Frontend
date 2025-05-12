@@ -1,0 +1,23 @@
+// signIn.scss
+
+.sign-in-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 45rem;
+  padding: 30rem;
+  font-size: 15rem;
+
+  @media screen and (max-width: 767px) {
+    margin: auto;
+  }
+
+  &__title {
+    margin-block: 10rem 20rem;
+    font-weight: 600;
+    font-size: 21rem;
+    user-select: none;
+  }
+}

@@ -1,0 +1,67 @@
+// Form.scss
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15rem;
+
+  & label {
+    font-weight: 600;
+    margin-bottom: 5rem;
+  }
+
+  & input {
+    font-size: 18rem;
+    padding: 4rem;
+    border: 1px solid #8f8f9d;
+    border-radius: 2px;
+  }
+  & input:hover {
+    border-color: #676774;
+  }
+}
+
+.input-remember {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  width: max-content;
+
+  & input {
+    margin: 5rem;
+    cursor: pointer;
+  }
+
+  & label {
+    margin-left: 5rem;
+    cursor: pointer;
+  }
+}
+
+.sign-in-button {
+  display: block;
+  width: 100%;
+  padding: 8rem;
+  font-size: 16rem;
+  font-weight: bold;
+  margin-top: 15rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  text-align: center;
+}
+
+.sign-in-button:hover {
+  text-decoration: underline;
+}
+
+.form-error {
+  margin-bottom: 10rem;
+  text-align: center;
+  color: red;
+}
+.bg-dark {
+  background-color: #12002b;
+  padding-bottom: 15%;
+}
