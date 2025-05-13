@@ -1,34 +1,24 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home/Home"; 
+import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
-
-
-const Layout = () => (
-  <>
-    <Navbar />
-    <div>
-      <Outlet /> {}
-    </div>
-    <Footer />
-  </>
-);
-
+import User from "./pages/User/User";
 
 const router = createBrowserRouter([
   {
-    path: "/", 
-    element: <Layout />, 
+    path: "/",
+    element: (
+      <>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </>
+    ),
     children: [
-      {
-        index: true,
-        element: <Home />, 
-      },
-      {
-        path: "/signIn", 
-        element: <SignIn />,
-      },
+      { path: "/", element: <Home /> },
+      { path: "/signIn", element: <SignIn /> },
+      { path: "/user", element: <User /> },
     ],
   },
 ]);
