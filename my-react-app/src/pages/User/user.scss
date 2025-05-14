@@ -101,3 +101,83 @@
     font-size: 37.5rem;
     font-weight: 600;
   }
+
+  .edit-name-container {
+   background-color: #ffffff;
+    padding: 2rem;
+
+
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;;
+    margin-top: 42px;
+    font-size: 19px;
+    padding-bottom: 32px;
+    h1 {
+      font-size: 15rem;
+      margin-bottom: 2rem;
+      color: #000000;
+      font-weight: bold;
+      text-align: center;
+    }
+  
+    .edit-name-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10rem;
+  
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        label {
+          flex: 1;
+          font-weight: bold;
+          color: #000000;
+          text-align: left;
+        }
+  
+        input {
+          flex: 2;
+          padding: 3rem 2rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 10rem;
+          box-sizing: border-box;
+  
+          &:disabled {
+            background-color: #aaaaaa;
+            color: #000000;
+          }
+        }
+      }
+  
+      .edit-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 22rem;
+        margin-top: 2rem;
+  
+        .save-button,
+        .cancel-button {
+          padding: 0.75rem 1.5rem;
+          font-size: 20rem;
+          font-weight: bold;
+          border: none;
+          cursor: pointer;
+          border-radius: 4px;
+          color: #ffffff;
+        }
+  
+        .save-button {
+          background-color: #00bc77;
+        }
+  
+        .cancel-button {
+          background-color: #00bc77;
+        }
+      }
+    }
+  }
+  

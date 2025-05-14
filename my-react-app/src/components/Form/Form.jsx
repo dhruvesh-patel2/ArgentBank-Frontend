@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux"; 
-import { setToken, setUserName } from "../../redux/userSlice"; 
+import { loginUser, getUserProfile } from "../../redux/userSlice"; // Importer le thunk
 
 const Form = () => {
   const postForm = useRef();
@@ -15,46 +15,27 @@ const Form = () => {
 
     const email = postForm.current[0].value;
     const password = postForm.current[1].value;
+    const remember = postForm.current[2].checked; // Récupérer la valeur du checkbox
 
     console.log("Données envoyées:", { email, password });
 
     try {
-      const response = await fetch("http://localhost:3001/api/v1/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      // Utilisation du thunk loginUser
+      const action = await dispatch(loginUser({ email, password, remember }));
 
-      const data = await response.json();
-      console.log("Statut de la réponse:", response.status);
-      console.log("Réponse complète:", data);
-
-      if (response.ok) {
-        const token = data.body.token;
-        dispatch(setToken(token));
-
-        // Récupérer les données de l'utilisateur avec le token
-        const userResponse = await fetch("http://localhost:3001/api/v1/user/profile", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`, // Ajout du token d'authentification
-          },
-        });
-
-        const userData = await userResponse.json();
-        if (userResponse.ok) {
-          console.log("Données de l'utilisateur:", userData);
-          // Mettre à jour le nom de l'utilisateur dans Redux
-          dispatch(setUserName(userData.body.userName)); // Ici, vous récupérez le nom de l'utilisateur
-          navigate("/user"); // Redirection vers la page utilisateur
-        } else {
-          setError(userData.message || "Impossible de récupérer les informations de l'utilisateur");
-        }
+      // Vérification de la réussite du thunk
+      if (action.error) {
+        setError(action.error.message); // Gestion de l'erreur
       } else {
-        setError(data.message || "Échec de connexion");
+        // Récupérer le profil utilisateur avec le token
+        const token = action.payload.token;
+        const userAction = await dispatch(getUserProfile(token));
+
+        if (userAction.error) {
+          setError(userAction.error.message); // Gestion de l'erreur de récupération du profil
+        } else {
+          navigate("/user"); // Redirection vers la page utilisateur si tout est ok
+        }
       }
     } catch (error) {
       console.error("Erreur complète:", error);

@@ -16,6 +16,7 @@ export const loginUser = createAsyncThunk(
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || "Authentication failed");
 
+      // Si "Remember me" est coché, on garde le token dans le localStorage
       if (remember) {
         localStorage.setItem("token", data.body.token);
       }
@@ -33,7 +34,7 @@ export const getUserProfile = createAsyncThunk(
   async (token, { rejectWithValue }) => {
     try {
       const response = await fetch("http://localhost:3001/api/v1/user/profile", {
-        method: "POST",
+        method: "GET", // Utilisation de GET au lieu de POST pour récupérer le profil
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -94,13 +95,16 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    // Action pour définir le token après la connexion
     setToken: (state, action) => {
       state.token = action.payload;
       state.isAuthenticated = true;
     },
+    // Action pour définir le userName
     setUserName: (state, action) => {
       state.userName = action.payload;
     },
+    // Action pour déconnecter l'utilisateur
     logout: (state) => {
       state.token = null;
       state.isAuthenticated = false;
@@ -108,14 +112,16 @@ const userSlice = createSlice({
       state.firstName = null;
       state.lastName = null;
       state.email = null;
-      localStorage.removeItem("token");
+      localStorage.removeItem("token"); // Retirer le token du localStorage
     },
+    // Action pour effacer l'erreur dans l'état
     clearError: (state) => {
       state.error = null;
     },
   },
   extraReducers: (builder) => {
     builder
+      // Pour le login
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -130,6 +136,7 @@ const userSlice = createSlice({
         state.error = action.payload;
       })
 
+      // Pour récupérer le profil utilisateur
       .addCase(getUserProfile.pending, (state) => {
         state.loading = true;
       })
@@ -145,6 +152,7 @@ const userSlice = createSlice({
         state.error = action.payload;
       })
 
+      //  mettre à jour le userName
       .addCase(updateUserName.fulfilled, (state, action) => {
         state.userName = action.payload;
       })
@@ -155,4 +163,5 @@ const userSlice = createSlice({
 });
 
 export const { setToken, setUserName, logout, clearError } = userSlice.actions;
+
 export default userSlice.reducer;

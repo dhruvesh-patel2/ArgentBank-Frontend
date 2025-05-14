@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { updateUserName } from '../../redux/userSlice'; 
+import { useEffect, useState } from 'react';
+import { getUserProfile, updateUserName } from '../../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
 import './user.scss';
 
@@ -14,13 +14,16 @@ function User() {
   const [editableUserName, setEditableUserName] = useState(userName);
 
   useEffect(() => {
+    if (token) {
+      dispatch(getUserProfile(token));
+    }
+  }, [dispatch, token]);
+
+  useEffect(() => {
     setEditableUserName(userName);
   }, [userName]);
 
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
+  const handleEditClick = () => setIsEditing(true);
   const handleCancelClick = () => {
     setEditableUserName(userName);
     setIsEditing(false);
@@ -47,48 +50,54 @@ function User() {
       <div className="header">
         {!isEditing ? (
           <>
-            <h1>Welcome back<br />{userName}!</h1>
+            <h1>
+              Welcome back<br />
+              {firstName} {lastName}!
+            </h1>
             <button className="edit-button" onClick={handleEditClick}>Edit Name</button>
           </>
         ) : (
           <div className="edit-name-container">
             <h1>Edit user info</h1>
             <form className="edit-name-form" onSubmit={(e) => e.preventDefault()}>
-              <div className="input-wrapper">
-                <label htmlFor="userName">User Name</label>
-                <input 
-                  type="text" 
-                  id="userName" 
-                  value={editableUserName}
-                  onChange={(e) => setEditableUserName(e.target.value)}
-                />
-              </div>
-              
-              <div className="input-wrapper">
-                <label htmlFor="firstName">First name</label>
-                <input 
-                  type="text" 
-                  id="firstName" 
-                  value={firstName || ''}
-                  disabled
-                />
-              </div>
+                  <div className="row">
+                    <label htmlFor="userName">User Name:</label>
+                    <input 
+                      type="text" 
+                      id="userName" 
+                      value={editableUserName}
+                      onChange={(e) => setEditableUserName(e.target.value)}
+                    />
+                  </div>
 
-              <div className="input-wrapper">
-                <label htmlFor="lastName">Last name</label>
-                <input 
-                  type="text" 
-                  id="lastName" 
-                  value={lastName || ''}
-                  disabled
-                />
-              </div>
-              
-              <div className="edit-buttons">
-                <button type="button" className="save-button" onClick={handleSaveClick}>Save</button>
-                <button type="button" className="cancel-button" onClick={handleCancelClick}>Cancel</button>
-              </div>
-            </form>
+                  <div className="row">
+                    <label htmlFor="firstName">First Name:</label>
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      value={firstName || ''}
+                      disabled
+                    />
+                  </div>
+
+                  <div className="row">
+                    <label htmlFor="lastName">Last Name:</label>
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      value={lastName || ''}
+                      disabled
+                    />
+                  </div>
+
+                  <div className="edit-buttons">
+                    <button type="button" className="save-button" onClick={handleSaveClick}>Save</button>
+                    <button type="button" className="cancel-button" onClick={handleCancelClick}>Cancel</button>
+                  </div>
+              </form>
+
+
+
           </div>
         )}
       </div>
