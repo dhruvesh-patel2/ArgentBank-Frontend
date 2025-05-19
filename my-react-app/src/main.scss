@@ -7,14 +7,13 @@
 @use "./global/typography.scss";
 @use "./global/utils.scss";
 
-@use "./components/Account/Account.scss";
 @use "./components/Features/Features.scss";
 
 //a conti,nnuer
 @use "./components/Footer/Footer.scss";
 @use "./components/Form/Form.scss";
 @use "./components/Navbar/Navbar.scss";
-@use "./components/ModalFeature/ModalFeature.scss";
+
 
 @use "./pages/Home/home.scss";
 @use "./pages/SignIn/signIn.scss";

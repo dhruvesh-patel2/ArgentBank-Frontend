@@ -63,5 +63,15 @@
 }
 .bg-dark {
   background-color: #12002b;
-  padding-bottom: 15%;
+  padding-bottom: 5%;
+}
+.input-wrapper:last-of-type {
+  margin-bottom: 5rem;
+}
+
+.form-error {
+  margin-bottom: 10rem;
+  margin-top: -5rem; 
+  text-align: center;
+  color: red;
 }

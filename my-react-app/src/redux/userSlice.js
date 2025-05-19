@@ -34,7 +34,7 @@ export const getUserProfile = createAsyncThunk(
   async (token, { rejectWithValue }) => {
     try {
       const response = await fetch("http://localhost:3001/api/v1/user/profile", {
-        method: "GET", // Utilisation de GET au lieu de POST pour récupérer le profil
+        method: "GET", 
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
