@@ -1,6 +1,6 @@
 // main.scss
 
-@use "./global/global.scss"; // Correct
+@use "./global/global.scss"; 
 
 @use "./global/mixins.scss";
 @use "./global/reset.scss";
@@ -9,7 +9,7 @@
 
 @use "./components/Features/Features.scss";
 
-//a conti,nnuer
+
 @use "./components/Footer/Footer.scss";
 @use "./components/Form/Form.scss";
 @use "./components/Navbar/Navbar.scss";

@@ -8,25 +8,18 @@
     justify-content: center;
     margin-bottom: 30rem;
   
-    &__title {
-      color: #fff;
-      text-align: center;
-      font-weight: 600;
-      font-size: 30rem;
-      margin-block: 30rem;
-      user-select: none;
-    }
+    
   }
   /* Style pour le titre */
   h1 {
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
     margin-top: 20px;
     text-align: center;
     margin-right: 12px;
+    font-size: 25rem;
   }
-  
-  /* Style pour le bouton d'édition */
+ 
   .edit-button {
     margin-top: 20px;
     margin-right: 24px;
@@ -38,12 +31,14 @@
     font-size: 15px;
     border-radius : none;
   }
-  /* Style pour le bouton de transaction sans bordure */
+
   .transaction-button {
     display: block;
-    padding: 10px;
-    font-size: 14.0625rem;
+    padding: 9px;
+    border-color: #000000;
+    font-size:14rem;
     font-weight: bold;
+    margin-right: -12px;
     background-color: #00bc77;
     color: #fff;
     border: none;
@@ -55,7 +50,7 @@
       width: 100%;
     }
   }
-  //test
+  
   
   // Account.scss
   .account {
@@ -67,7 +62,7 @@
     background-color: #fff;
     width: 80%;
     margin: 0 auto;
-    padding: 2.25rem;
+    padding: 22.25rem;
     margin-bottom: 30px;
     box-sizing: border-box;
     text-align: left;
@@ -93,12 +88,12 @@
   
   .account-title,
   .account-amount-description {
-    font-size: 15rem;
+    font-size: 12rem;
     font-weight: normal;
   }
   
   .account-amount {
-    font-size: 37.5rem;
+    font-size: 31.5rem;
     font-weight: 600;
   }
 
@@ -180,4 +175,7 @@
       }
     }
   }
-  
+  .bg-dark {
+    background-color: #12002b;
+    padding-bottom: 1%;
+  }
